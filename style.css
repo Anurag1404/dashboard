@@ -1,0 +1,538 @@
+:root {
+  --ff-main: "Quicksand", sans-serif;
+
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.625rem;
+  --fs-800: 2rem;
+  --fs-900: 2.5rem;
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+
+  --clr-blue: hsl(236, 99%, 65%);
+  --clr-black: hsl(0, 0%, 0%);
+  --clr-text: hsl(0, 0%, 40%);
+  --clr-dark-blue: hsl(236, 49%, 27%);
+  --clr-orange: hsl(353, 100%, 50%);
+  --clr-light-white: hsl(240, 100%, 98%);
+  --clr-green: hsl(149, 76%, 87%);
+  --clr--purple: hsl(239, 45%, 61%);
+  --clr-white: hsl(0, 0%, 100%);
+}
+
+/*CSS Resets*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  font-family: var(--ff-main);
+  font-weight: var(--fw-normal);
+  line-height: 1.5;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  line-height: 1.1;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  font-size: 16px;
+  margin: 0;
+  background: var(--clr-blue);
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+.body-wrapper {
+  display: flex;
+}
+
+/*side navbar*/
+
+.side-nav {
+  max-width: 14.5em;
+  padding: 1.875rem;
+  height: 100vh;
+}
+
+.side-nav .main-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc((100% - 3.75rem) - 3rem);
+}
+
+.side-nav .logo {
+  margin-bottom: 3rem;
+}
+
+.nav-item {
+  color: var(--clr-white);
+  width: 100%;
+  font-weight: var(--fw-600);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item a svg {
+  margin-right: 0.3em;
+}
+
+.arrow {
+  float: right;
+}
+
+.nav-item:not(:last-child) {
+  margin-bottom: 1.75rem;
+}
+
+/*side navbar*/
+
+/* Main */
+
+.main-wrapper {
+  margin: 0.5em;
+  background: var(--clr-white);
+  width: 100%;
+  border-radius: 1.5rem;
+  display: flex;
+  position: relative;
+}
+
+/* Main left */
+
+.main-wrapper .main-content-wrapper {
+  width: 60%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.main-content-wrapper::before {
+  position: absolute;
+  content: "";
+  width: 0; 
+  height: 0; 
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right:15px solid #fff; 
+  top: 15.5%;
+  left: -14px;
+  z-index: 1;
+}
+
+
+.main-text-wrapper {
+  position: relative;
+}
+
+.main-text-wrapper .theme-mode {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 2.75rem;
+  border: 2px solid var(--clr-black);
+  padding: 0.2rem;
+  border-radius: 60px;
+}
+
+.main-content-wrapper .text {
+  color: var(--clr-text);
+  margin-top: 0.6em;
+}
+
+.bold {
+  font-weight: var(--fw-700);
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  gap: 1rem;
+
+}
+
+.card {
+  padding: 1.625rem 1rem;
+  min-height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.br {
+  border-radius: 20px;
+}
+
+.border {
+  border: 3px solid #f2ecee;
+}
+
+.card .date-wrapper {
+  margin: 2rem 0;
+}
+
+.time-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#time {
+  font-size: clamp(var(--fs-400), 2.5vw, 10rem );
+  font-weight: var(--fw-600);
+}
+
+.date-wrapper h4{
+  line-height: 1.5;
+}
+
+.attendance-btn{
+  color: var(--clr-white);
+  background: var(--clr-orange);
+  padding: 0.8rem 1rem;
+  border-radius: 50px;
+  font-weight: var(--fw-600);
+}
+
+.present-employees {
+  background: var(--clr-dark-blue);
+}
+
+.icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.employee-text {
+  color: var(--clr-white);
+}
+
+.employee-text span {
+  font-size: clamp(var(--fs-400), 2.5vw, 10rem );
+  line-height: 1.7;
+}
+
+.absent-employees {
+  background: var(--clr-orange);
+}
+
+.bottom-wrapper {
+  padding: 1.625rem 1rem;
+}
+
+.bottom-wrapper .top-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+}
+
+.top-div .icon-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  display: grid;
+  place-content: center;
+}
+
+.announcement, .thought {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.bottom-wrapper .top-div h3 {
+  font-size: var(--fs-500);
+}
+
+.bottom-wrapper .thought h3 {
+  color: rgba(98, 100, 185, 1);
+}
+
+.ann-icon-wrap {
+  background-color: rgba(255, 0, 30, 0.2);
+  border: 1px solid rgba(255, 0, 30, 0.4)
+}
+
+.th-icon-wrap {
+  background-color: rgba(98, 100, 185, 0.2);
+  border: 1px solid rgba(98, 100, 185, 0.4);
+}
+
+.bottom-wrapper .first-child {
+  margin: 2rem 0;
+  line-height: 1.5;
+}
+
+/* Main Right */
+
+.side-content-wrapper {
+  background: #f7f7ff;
+  width: 40%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+.side-content-wrapper .side-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 6rem;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 10rem;
+  padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-wrapper {
+  width: 50px;
+  height: 50px;
+  background-image: url(./assets/profile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.profile-wrapper .user-name span{
+  font-size: 0.875rem;
+  font-weight: var(--fw-600);
+}
+
+.side-content-wrapper .calender-wrapper {
+  padding: 1.625rem 1rem;
+  background: var(--clr-white);
+}
+
+.calender-wrapper .calendar-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-btn-wrapper .attendance-btn.bg-green {
+  background: var(--clr-green);
+  color: #5f5d5d;
+  font-weight: var(--fw-700);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 0.875rem;
+}
+
+.calendar-btn-wrapper .attendance-btn.bg-orange {
+  background: #ffecee;
+  color: var(--clr-orange);
+  font-weight: var(--fw-700);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 0.875rem;
+}
+
+/* Calendar */
+
+.wrapper{
+  width: 100%;
+  margin-top: 1.5em;
+}
+.wrapper header{
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  justify-content: space-between;
+}
+header .icons{
+  display: flex;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+}
+header .current-date{
+  font-size: 1.25rem;
+  font-weight: var(--fw-600);
+}
+.calendar{
+  padding: 20px;
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar .days{
+  margin-bottom: 20px;
+}
+.calendar li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar .weeks li{
+  font-weight: 700;
+  cursor: default;
+  color: var(--clr-orange);
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive{
+  color: #aaa;
+}
+.days li.active{
+  color: #fff;
+}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active::before{
+  background: var(--clr-orange);
+}
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
+}
+
+.wrapper .holiday.mt {
+  margin: 1rem 0;
+}
+
+.holiday .hol-date {
+  color: var(--clr-text);
+  font-weight: var(--fw-700);
+  margin-right: 4rem;
+  font-size: var(--fs-400);
+}
+
+.holiday .hol-event {
+  color: var(--clr-orange);
+  font-weight: var(--fw-700);
+  font-size: var(--fs-400);
+}
